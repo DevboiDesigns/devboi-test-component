@@ -4,7 +4,6 @@ Example Repository to show how to create and publish web components with vite & 
 
 - [Lit](https://lit.dev)
 - [Vite](https://vite.dev)
-- 
 
 Create a Vite & Lit web component and publish to NPM and consume in a new project.
 
