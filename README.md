@@ -231,11 +231,12 @@ Create a new empty directory with an `index.html` file and add the below code. Y
     </style>
   </head>
   <body>
-    <one-element oneName="TestName"></one-element>
+    <one-element oneName="Test&nbsp;Name"></one-element>
     <fake-element fakeName="FakeName"></fake-element>
-    <two-element twoName="TwoName"></two-element>
+    <two-element twoName="Two&nbsp;Name"></two-element>
   </body>
 </html>
+
 ```
 
 # Notes
