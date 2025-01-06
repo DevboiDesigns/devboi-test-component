@@ -1,0 +1,32 @@
+{
+  "name": "devboi-test-component",
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/devboi-test-component.umd.cjs",
+  "module": "./dist/devboi-test-component.js",
+  "exports": {
+    ".": {
+      "import": "./dist/devboi-test-component.js",
+      "require": "./dist/devboi-test-component.umd.cjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DevboiDesigns/devboi-test-component"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lit": "^3.2.1"
+  },
+  "devDependencies": {
+    "typescript": "~5.6.2",
+    "vite": "^6.0.5"
+  }
+}
