@@ -1,6 +1,6 @@
 # Lit & Vite Web Component
 
-Example Repository to show how to create and publish web components with vite & lit.
+Example Repository to document how to create and publish web components with vite & lit.
 
 - [Lit](https://lit.dev)
 - [Vite](https://vite.dev)
@@ -13,7 +13,7 @@ Create a Vite & Lit web component and publish to NPM and consume in a new projec
 
 # Create Web Component
 
-Example setup for a package named **`devboi-test-component`**
+Example setup for a package named **`devboi-test-component`**. Be sure to replace all instances of this name with your own package name.
 
 - [Publishing Lit & Vite notes (with storybook)](https://dev.to/leon/vite-lit-and-storybook-43f)
 
@@ -23,9 +23,11 @@ Example setup for a package named **`devboi-test-component`**
 npm create vite@latest devboi-test-component -- --template lit-ts
 ```
 
-2. **Delete assets, and public dist,** sample element, and remove favicon from `index.html`
+1. **Delete assets, public dist, sample element, and remove favicon from `index.html`.**
 
-3. **Create vite.config.js**:
+2. **Create vite.config.js**:
+
+_Investigate depending on your `project externalizeing deps that shouldn't be bundled`_
 
 ```js
 import { resolve } from "path"
@@ -49,7 +51,7 @@ export default defineConfig({
 })
 ```
 
-4. Create some test components to export in the src dir:
+1. **Create some test components to export in the src dir**:
 
 - `one-element.ts`
 
@@ -95,14 +97,16 @@ declare global {
 }
 ```
 
-5. **Create a barrel file entry point** in the src dir and export all components:
+5. **Create a barrel file entry point in the src dir and export all components**:
+
+- `src/index.ts`
 
 ```ts
 export * from "./one-element"
 export * from "./two-element"
 ```
 
-6. Update `tsconfig.json`:
+6. **Update `tsconfig.json`**:
 
 ```json
 {
@@ -128,16 +132,17 @@ export * from "./two-element"
 }
 ```
 
-7. Setup index.html and test new components with `npm run dev`:
+7. **Setup `index.html` and test new components with `npm run dev`**:
+
+_Make sure to import the new `src/index.ts` export file._
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Lit + TS</title>
+    <title>Test Component</title>
     <link rel="stylesheet" href="./src/index.css" />
     <script type="module" src="/src/index.ts"></script>
   </head>
@@ -148,7 +153,7 @@ export * from "./two-element"
 </html>
 ```
 
-8. Setup `package.json`:
+8. **Setup `package.json`**:
 
 Remove `private`
 
@@ -165,7 +170,7 @@ Add:
 ```json
 {
   "name": "devboi-test-component",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "files": ["dist"],
   "main": "./dist/devboi-test-component.umd.cjs",
@@ -204,6 +209,8 @@ npm publish --access public
 ```
 
 # Testing in a new project
+
+Create a new empty directory with an `index.html` file and add the below code. You should see the components in the browser.
 
 ```html
 <!DOCTYPE html>
