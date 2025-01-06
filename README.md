@@ -244,3 +244,16 @@ Interesting helpful links:
 
 - [Medium Article - create-web-components-using-google-lit](https://biondifabio.medium.com/create-web-components-using-google-lit-71099093b8fc)
 - [YT Video by same person as above on publishing](https://www.youtube.com/watch?v=hrhWXSZ7M3w)
+
+## Star on GitHub 🤩
+
+If you found this example to be helpful
+[star this project on GitHub](https://github.com/DevboiDesigns/devboi-test-component#start-of-content).
+
+[![GitHub stars](https://img.shields.io/github/stars/devboidesigns/devboi-test-component?style=social)](https://github.com/devboidesigns/devboi-test-component#start-of-content)
+
+---
+
+[Source code](https://github.com/DevboiDesigns/devboi-test-component)
+
+[License](https://github.com/DevboiDesigns/devboi-test-component/blob/main/LICENSE)
