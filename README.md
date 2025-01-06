@@ -330,7 +330,20 @@ export default defineConfig({
 })
 ```
 
-5. Test `npm run dev`
+5. Update `package.json` dependencies:
+
+```json
+  "peerDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "lit": "^3.2.1"
+  },
+  "devDependencies": {
+    "typescript": "~5.6.2",
+    "vite": "^6.0.5"
+  },
+```
+
+6. Test `npm run dev`
 
 # Notes
 
