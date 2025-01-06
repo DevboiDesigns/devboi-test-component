@@ -2,6 +2,7 @@
   "name": "devboi-test-component",
   "version": "1.0.3",
   "license": "MIT",
+  "description": "An example of how to make and publish a web component using Lit & Vite",
   "type": "module",
   "files": [
     "dist"
@@ -14,6 +15,8 @@
       "require": "./dist/devboi-test-component.umd.cjs"
     }
   },
+  "author": "Christopher Hicks",
+  "homepage": "https://github.com/DevboiDesigns#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/DevboiDesigns/devboi-test-component"
@@ -29,5 +32,51 @@
   "devDependencies": {
     "typescript": "~5.6.2",
     "vite": "^6.0.5"
-  }
+  },
+  "keywords": [
+    "Vite",
+    "Lit",
+    "npm-package",
+    "DevboiDesigns",
+    "example",
+    "web-component",
+    "web-components",
+    "webcomponent",
+    "webcomponents",
+    "web-components-examples",
+    "web-components-example",
+    "web-components-tutorial",
+    "web-components-tutorials",
+    "web-components-how-to",
+    "web-components-how-tos",
+    "web-components-how-to-guide",
+    "web-components-how-to-guides",
+    "web-components-guide",
+    "web-components-guides",
+    "web-components-documentation",
+    "web-components-docs",
+    "web-components-demo",
+    "web-components-demos",
+    "web-components-demo-page",
+    "web-components-demo-pages",
+    "web-components-demo-site",
+    "web-components-demo-sites",
+    "web-components-demo-website",
+    "web-components-demo-websites",
+    "web-components-demo-example",
+    "web-components-demo-examples",
+    "web-components-demo-tutorial",
+    "web-components-demo-tutorials",
+    "web-components-demo-how-to",
+    "web-components-demo-how-tos",
+    "web-components-demo-how-to-guide",
+    "web-components-demo-how-to-guides",
+    "web-components-demo-guide",
+    "web-components-demo-guides",
+    "web-components-demo-documentation",
+    "web-components-demo-docs",
+    "web-components-demo-demo",
+    "web-components-demo-demos",
+    "web-components-demo-demo-page"
+  ]
 }
