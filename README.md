@@ -23,9 +23,9 @@ Example setup for a package named **`devboi-test-component`**. Be sure to replac
 npm create vite@latest devboi-test-component -- --template lit-ts
 ```
 
-1. **Delete assets, public dist, sample element, and remove favicon from `index.html`.**
+2. **Delete assets, public dist, sample element, and remove favicon from `index.html`.**
 
-2. **Create vite.config.js**:
+3. **Create vite.config.js**:
 
 _Investigate depending on your `project externalizeing deps that shouldn't be bundled`_
 
@@ -51,7 +51,7 @@ export default defineConfig({
 })
 ```
 
-1. **Create some test components to export in the src dir**:
+4. **Create some test components to export in the src dir**:
 
 - `one-element.ts`
 
