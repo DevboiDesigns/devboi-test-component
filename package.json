@@ -26,7 +26,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
-  "dependencies": {
+  "peerDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
     "lit": "^3.2.1"
   },
   "devDependencies": {

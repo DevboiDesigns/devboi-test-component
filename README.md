@@ -236,8 +236,101 @@ Create a new empty directory with an `index.html` file and add the below code. Y
     <two-element twoName="Two&nbsp;Name"></two-element>
   </body>
 </html>
-
 ```
+
+# Optional
+
+Setup using [Vue](https://vuejs.org) files in the project:
+
+Install:
+
+```sh
+npm install @vitejs/plugin-vue
+```
+
+1. Create a test `Vue` file in the src dir and with the contents:
+
+- `TestView.vue`
+
+```vue
+<script setup></script>
+<template>
+  <div>
+    <h1>Test View</h1>
+  </div>
+</template>
+```
+
+2. Create a `test-view-wrapper.js` in the src dir with the contents:
+
+- `test-view-wrapper.js`
+
+```js
+import { createApp } from "vue"
+import TestView from "./TestView.vue"
+
+class TestViewWrapper extends HTMLElement {
+  connectedCallback() {
+    createApp(TestView).mount(this)
+  }
+}
+
+customElements.define("test-view-wrapper", TestViewWrapper)
+```
+
+3. Use the custom element in your LitElement:
+
+```ts
+import { LitElement, html } from "lit"
+import { customElement, property } from "lit/decorators.js"
+import "./test-view-wrapper.js"
+
+@customElement("one-element")
+class OneElement extends LitElement {
+  @property({ type: String }) oneName = "Default Company Name"
+
+  render() {
+    return html`<test-view-wrapper></test-view-wrapper>`
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "one-element": OneElement
+  }
+}
+```
+
+4. Configure the `Vue` plugin:
+
+- `vite.config.js`
+
+```js
+// filepath: /Users/devboi/GitHub/devboi-test-component/vite.config.js
+import { resolve } from "path"
+import { defineConfig } from "vite"
+import vue from "@vitejs/plugin-vue"
+
+export default defineConfig({
+  plugins: [vue()],
+  build: {
+    lib: {
+      // Could also be a dictionary or array of multiple entry points
+      entry: resolve(__dirname, "src/index.ts"),
+      name: "NewCmp",
+      // the proper extensions will be added
+      fileName: "devboi-test-component",
+    },
+    rollupOptions: {
+      // make sure to externalize deps that shouldn't be bundled
+      // into your library
+      external: ["lit", "vue"],
+    },
+  },
+})
+```
+
+5. Test `npm run dev`
 
 # Notes
 
