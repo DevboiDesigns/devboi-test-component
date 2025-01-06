@@ -27,6 +27,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
     "lit": "^3.2.1"
   },
   "devDependencies": {
