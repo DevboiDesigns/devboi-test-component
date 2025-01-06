@@ -1,0 +1,237 @@
+# Lit & Vite Web Component
+
+- [Lit](https://lit.dev)
+- [Vite](https://vite.dev)
+
+Create a Vite & Lit web component and publish to NPM and consume in a new project.
+
+- [Bundle Vite in library mode notes](https://vite.dev/guide/build.html#library-mode)
+- [Helpful Stackoverflow](https://stackoverflow.com/questions/78195144/bundling-lit-js-in-vite-for-production-rolluperror-could-not-resolve-entry-mo)
+- [Lit Publish Docs](https://lit.dev/docs/v1/tools/publish/)
+
+# Create Web Component
+
+Example setup for a package named **`devboi-test-component`**
+
+- [Publishing Lit & Vite notes (with storybook)](https://dev.to/leon/vite-lit-and-storybook-43f)
+
+1. **Create package**:
+
+```sh
+npm create vite@latest devboi-test-component -- --template lit-ts
+```
+
+2. **Delete assets, and public dist,** sample element, and remove favicon from `index.html`
+
+3. **Create vite.config.js**:
+
+```js
+import { resolve } from "path"
+import { defineConfig } from "vite"
+
+export default defineConfig({
+  build: {
+    lib: {
+      // Could also be a dictionary or array of multiple entry points
+      entry: resolve(__dirname, "src/index.ts"),
+      name: "NewCmp",
+      // the proper extensions will be added
+      fileName: "devboi-test-component",
+    },
+    rollupOptions: {
+      // make sure to externalize deps that shouldn't be bundled
+      // into your library
+      // external: ["lit"],
+    },
+  },
+})
+```
+
+4. Create some test components to export in the src dir:
+
+- `one-element.ts`
+
+```ts
+import { LitElement, html } from "lit"
+import { customElement, property } from "lit/decorators.js"
+
+@customElement("one-element")
+class OneElement extends LitElement {
+  @property({ type: String }) oneName = "Default Company Name"
+
+  render() {
+    return html`<pre>${this.oneName}</pre>`
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "one-element": OneElement
+  }
+}
+```
+
+- `two-element.ts`
+
+```ts
+import { LitElement, html } from "lit"
+import { customElement, property } from "lit/decorators.js"
+
+@customElement("two-element")
+class TwoElement extends LitElement {
+  @property({ type: String }) twoName = "Default Company Name"
+
+  render() {
+    return html`<pre>${this.twoName}</pre>`
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "two-element": TwoElement
+  }
+}
+```
+
+5. **Create a barrel file entry point** in the src dir and export all components:
+
+```ts
+export * from "./one-element"
+export * from "./two-element"
+```
+
+6. Update `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "lib": ["es2017", "dom"],
+    "experimentalDecorators": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "./types",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": false
+  },
+  "include": ["src/**/*.ts"]
+}
+```
+
+7. Setup index.html and test new components with `npm run dev`:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Lit + TS</title>
+    <link rel="stylesheet" href="./src/index.css" />
+    <script type="module" src="/src/index.ts"></script>
+  </head>
+  <body>
+    <one-element oneName="One-Name"></one-element>
+    <two-element twoName="TwoName"></two-element>
+  </body>
+</html>
+```
+
+8. Setup `package.json`:
+
+Remove `private`
+
+Add:
+
+- name of package
+- type
+- files
+- main
+- module
+- exports
+- repository
+
+```json
+{
+  "name": "devboi-test-component",
+  "version": "0.0.0",
+  "type": "module",
+  "files": ["dist"],
+  "main": "./dist/devboi-test-component.umd.cjs",
+  "module": "./dist/devboi-test-component.js",
+  "exports": {
+    ".": {
+      "import": "./dist/devboi-test-component.js",
+      "require": "./dist/devboi-test-component.umd.cjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DevboiDesigns/devboi-test-component"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lit": "^3.2.1"
+  },
+  "devDependencies": {
+    "typescript": "~5.6.2",
+    "vite": "^6.0.5"
+  }
+}
+```
+
+# Publish
+
+- [Notes on publishing](https://www.freecodecamp.org/news/how-to-create-and-publish-your-first-npm-package/)
+
+```sh
+npm publish --access public
+```
+
+# Testing in a new project
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="module"
+      src="https://cdn.skypack.dev/devboi-test-component"
+    ></script>
+    <title>Test Component</title>
+    <style>
+      * {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <one-element oneName="TestName"></one-element>
+    <fake-element fakeName="FakeName"></fake-element>
+    <two-element twoName="TwoName"></two-element>
+  </body>
+</html>
+```
+
+# Notes
+
+Interesting helpful links:
+
+- [Medium Article - create-web-components-using-google-lit](https://biondifabio.medium.com/create-web-components-using-google-lit-71099093b8fc)
+- [YT Video by same person as above on publishing](https://www.youtube.com/watch?v=hrhWXSZ7M3w)
