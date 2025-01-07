@@ -1,6 +1,6 @@
 {
   "name": "devboi-test-component",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "description": "An example of how to make and publish a web component using Lit & Vite",
   "type": "module",
