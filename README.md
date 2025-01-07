@@ -330,7 +330,11 @@ export default defineConfig({
 })
 ```
 
-5. Test `npm run dev`
+5. Test
+
+```sh
+npm run dev
+```
 
 # Notes
 
