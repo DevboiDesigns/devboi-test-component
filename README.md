@@ -11,7 +11,7 @@ Create a Vite & Lit web component and publish to NPM and consume in a new projec
 - [Helpful Stackoverflow](https://stackoverflow.com/questions/78195144/bundling-lit-js-in-vite-for-production-rolluperror-could-not-resolve-entry-mo)
 - [Lit Publish Docs](https://lit.dev/docs/v1/tools/publish/)
 
-# Create Web Component
+## Create Web Component
 
 Example setup for a package named **`devboi-test-component`**. Be sure to replace all instances of this name with your own package name.
 
@@ -202,7 +202,7 @@ _Update the peer dependencies_
 }
 ```
 
-# Publish
+## Publish
 
 - [Notes on publishing](https://www.freecodecamp.org/news/how-to-create-and-publish-your-first-npm-package/)
 
@@ -210,7 +210,7 @@ _Update the peer dependencies_
 npm publish --access public
 ```
 
-# Testing in a new project
+## Testing in a new project
 
 Create a new empty directory with an `index.html` file and add the below code. You should see the components in the browser.
 
@@ -249,7 +249,7 @@ Create a new empty directory with an `index.html` file and add the below code. Y
 - [Medium Article - create-web-components-using-google-lit](https://biondifabio.medium.com/create-web-components-using-google-lit-71099093b8fc)
 - [YT Video by same person as above on publishing](https://www.youtube.com/watch?v=hrhWXSZ7M3w)
 
-## Star on GitHub 🤩
+# Star on GitHub 🤩
 
 If you found this example to be helpful
 [star this project on GitHub](https://github.com/DevboiDesigns/devboi-test-component#start-of-content).
