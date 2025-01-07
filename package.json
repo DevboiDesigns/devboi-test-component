@@ -5,7 +5,8 @@
   "description": "An example of how to make and publish a web component using Lit & Vite",
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
   "main": "./dist/devboi-test-component.umd.cjs",
   "module": "./dist/devboi-test-component.js",
@@ -27,11 +28,11 @@
     "preview": "vite preview"
   },
   "peerDependencies": {
-    "@vitejs/plugin-vue": "^5.2.1",
     "lit": "^3.2.1"
   },
   "devDependencies": {
     "typescript": "~5.6.2",
+    "@vitejs/plugin-vue": "^5.2.1",
     "vite": "^6.0.5"
   },
   "keywords": [

@@ -172,7 +172,7 @@ Add:
   "name": "devboi-test-component",
   "version": "0.0.1",
   "type": "module",
-  "files": ["dist"],
+  "files": ["dist", "types"],
   "main": "./dist/devboi-test-component.umd.cjs",
   "module": "./dist/devboi-test-component.js",
   "exports": {
@@ -190,7 +190,7 @@ Add:
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
-  "dependencies": {
+  "peerDependencies": {
     "lit": "^3.2.1"
   },
   "devDependencies": {
@@ -334,11 +334,11 @@ export default defineConfig({
 
 ```json
   "peerDependencies": {
-    "@vitejs/plugin-vue": "^5.2.1",
     "lit": "^3.2.1"
   },
   "devDependencies": {
     "typescript": "~5.6.2",
+    "@vitejs/plugin-vue": "^5.2.1",
     "vite": "^6.0.5"
   },
 ```
