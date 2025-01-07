@@ -242,6 +242,8 @@ Create a new empty directory with an `index.html` file and add the below code. Y
 
 # Notes
 
+- The repo also contains a branch [`config_using_vue`](https://github.com/DevboiDesigns/devboi-test-component/tree/config_using_vue) for setting up the project to use [Vue](https://vuejs.org) files.
+
 Interesting helpful links:
 
 - [Medium Article - create-web-components-using-google-lit](https://biondifabio.medium.com/create-web-components-using-google-lit-71099093b8fc)
