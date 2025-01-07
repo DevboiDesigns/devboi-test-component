@@ -245,7 +245,7 @@ Setup using [Vue](https://vuejs.org) files in the project:
 Install:
 
 ```sh
-npm install @vitejs/plugin-vue
+npm i -D @vitejs/plugin-vue
 ```
 
 1. Create a test `Vue` file in the src dir and with the contents:
@@ -330,20 +330,7 @@ export default defineConfig({
 })
 ```
 
-5. Update `package.json` dependencies:
-
-```json
-  "peerDependencies": {
-    "lit": "^3.2.1"
-  },
-  "devDependencies": {
-    "typescript": "~5.6.2",
-    "@vitejs/plugin-vue": "^5.2.1",
-    "vite": "^6.0.5"
-  },
-```
-
-6. Test `npm run dev`
+5. Test `npm run dev`
 
 # Notes
 
