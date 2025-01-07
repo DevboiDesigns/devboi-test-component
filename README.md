@@ -27,7 +27,7 @@ npm create vite@latest devboi-test-component -- --template lit-ts
 
 3. **Create vite.config.js**:
 
-_Investigate depending on your `project externalizeing deps that shouldn't be bundled`_
+_Depending on your project `externalizeing deps that shouldn't be bundled`_
 
 ```js
 import { resolve } from "path"
@@ -45,7 +45,7 @@ export default defineConfig({
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
-      // external: ["lit"],
+      external: ["lit"],
     },
   },
 })
@@ -155,24 +155,26 @@ _Make sure to import the new `src/index.ts` export file._
 
 8. **Setup `package.json`**:
 
-Remove `private`
+- Remove:
+  - private
 
-Add:
+_Update the peer dependencies_
 
-- name of package
-- type
-- files
-- main
-- module
-- exports
-- repository
+- Add:
+  - name of package
+  - type
+  - files
+  - main
+  - module
+  - exports
+  - repository
 
 ```json
 {
   "name": "devboi-test-component",
   "version": "0.0.1",
   "type": "module",
-  "files": ["dist"],
+  "files": ["dist", "types"],
   "main": "./dist/devboi-test-component.umd.cjs",
   "module": "./dist/devboi-test-component.js",
   "exports": {
@@ -190,7 +192,7 @@ Add:
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
-  "dependencies": {
+  "peerDependencies": {
     "lit": "^3.2.1"
   },
   "devDependencies": {
@@ -236,7 +238,6 @@ Create a new empty directory with an `index.html` file and add the below code. Y
     <two-element twoName="Two&nbsp;Name"></two-element>
   </body>
 </html>
-
 ```
 
 # Notes
