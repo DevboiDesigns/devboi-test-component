@@ -27,7 +27,7 @@ npm create vite@latest devboi-test-component -- --template lit-ts
 
 3. **Create vite.config.js**:
 
-_Depending on your project `externalizeing deps that shouldn't be bundled`_
+_Depending on your project `externalize deps that shouldn't be bundled`_
 
 ```js
 import { resolve } from "path"
