@@ -212,6 +212,15 @@ npm publish --access public
 
 ## Testing in a new project
 
+Load the module via [skypack](https://www.skypack.dev):
+
+```html
+<script
+  type="module"
+  src="https://cdn.skypack.dev/devboi-test-component"
+></script>
+```
+
 Create a new empty directory with an `index.html` file and add the below code. You should see the components in the browser.
 
 ```html
